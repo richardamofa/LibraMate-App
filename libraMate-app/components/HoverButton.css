@@ -1,0 +1,79 @@
+.hover-btn {
+  position: relative;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hover-btn.default {
+  background: #ac7f5e;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(172, 127, 94, 0.35);
+}
+
+.hover-btn.default:hover {
+  background: #9a6f52;
+  transform: scale(1.05);
+  box-shadow: 0 10px 22px rgba(172, 127, 94, 0.45);
+}
+
+.hover-btn.secondary {
+  background: #ede3db;
+  color: #7b5940;
+}
+
+.hover-btn.secondary:hover {
+  background: #e2d4c8;
+  transform: scale(1.05);
+}
+
+.hover-btn.outline {
+  background: transparent;
+  border: 2px solid #ac7f5e;
+  color: #ac7f5e;
+}
+
+.hover-btn.outline:hover {
+  background: #ac7f5e;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.hover-btn:hover .btn-text {
+  transform: translateY(-2px);
+}
+
+.btn-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.hover-btn:hover .btn-overlay {
+  opacity: 1;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.hover-btn:hover .btn-icon {
+  transform: rotate(8deg) scale(1.1);
+}
