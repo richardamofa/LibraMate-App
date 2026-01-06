@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+.env
+npm-debug.log
+yarn-error.log
+package-lock.json
+package.json
+README.md
+node_modules/
