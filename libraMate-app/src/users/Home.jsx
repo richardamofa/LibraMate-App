@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="app">
+    <div className="app"> 
       <header className="navbar">
         <h2 className="logo">LibraMate System Management</h2>
         <div className="nav-links">

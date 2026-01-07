@@ -21,13 +21,11 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
-  background: var(--bg);
+  background: linear-gradient(135deg, #fff, #f8f8f8);
 }
 
 .app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background: var(--bg);
 }
 
@@ -53,6 +51,11 @@ html, body {
   border-radius: var(--border-radius);
 }
 
+.navbar.scrolled {
+  padding: 10px 25px;
+  background: ;
+}
+
 .logo {
   font-size: 1.6rem;
   font-weight: 700;
@@ -76,6 +79,7 @@ html, body {
 }
 
 .nav-btn:hover {
+  color: inherit;
   border: 1px solid var(--glass-border);
   background: rgba(255,255,255,0.65);
 }

@@ -1,0 +1,45 @@
+:root {
+  --primary-color: #b58a6a;
+  --secondary-color: #7b5940;
+  --accent: #c59b7b;
+  --bg: #ffffff;
+  --glass-bg: rgba(181, 138, 106, 0.18);
+  --glass-border: rgba(181, 138, 106, 0.35);
+  --text-dark: #2e2e2e;
+  --border-radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #fff, #f8f8f8);
+  color: #7b5940;
+}
+
+.admin-signup .admin-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.signup-right {
+  width: 100%;
+  max-width: 420px;
+}
+
+.signup-left {
+    width: 100%;
+    max-width: 500px;
+}
