@@ -1,12 +1,58 @@
 import "./Admin.css";
 import { FaUser, FaEnvelope, FaLock, FaIdBadge, FaUserShield } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import adminImg from "/src/assets/admin-sign-bg.png";
+import adminImg from "../../assets/admin-sign-bg.png";
 
 export default function AdminSignup() {
+  const navigate = useNavigate();
+
+  const [message, setMessage] = useState("");
+  const [type, setType] = useState("");
+
+  const handleSignup = (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const fullName = form.fullName.value;
+  const staffId = form.staffId.value;
+  const password = form.password.value;
+  const confirmPassword = form.confirmPassword.value;
+
+  if (!fullName || !staffId || !password || !confirmPassword) {
+    setType("error");
+    setMessage("Please fill in all required fields.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    setType("error");
+    setMessage("Passwords do not match.");
+    return;
+  }
+
+  if (staffId !== "AD1234-5") {
+    setType("error");
+    setMessage("Invalid staff ID.");
+    return;
+  }
+
+  if (password === "admin1234") {
+    setType("success");
+    setMessage("Admin account created successfully!");
+  } else {
+    setType("error");
+    setMessage("Password must match admin credentials.");
+  }
+};
   return (
     <div className="admin-signup">
       <main className="admin-inner">
+        <div className="back-arrow" onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
 
         {/* RIGHT SIDE */}
         <div className="signup-right">
@@ -21,41 +67,47 @@ export default function AdminSignup() {
                 information below.
                 </p>
 
-                <form className="signup-form">
+                <form className="signup-form" onSubmit={handleSignup}>
 
                 <div className="input-group">
                   <FaUser className="input-icon"/>
-                  <input type="text" placeholder="Full Name" required />
+                  <input name="fullName" type="text" placeholder="Full Name: Kofi Smith" required />
                 </div>
 
                 <div className="input-group">
                   <FaEnvelope className="input-icon"/>
-                  <input type="email" placeholder="Email Address" required />
+                  <input name="email" type="email" placeholder="Email Address: kofismith@mailsample.com" required />
                 </div>
 
                 <div className="input-group">
                   <FaIdBadge className="input-icon"/>
-                  <input type="text" placeholder="Staff ID" required />
+                  <input name="staffId" type="text" placeholder="Staff ID: AD12498-1" required />
                 </div>
 
                 <div className="input-group">
                   <FaLock className="input-icon"/>
-                  <input type="password" placeholder="Password" required />
+                  <input name="password" type="password" placeholder="Password: xtywohe*****dfhio" required />
                 </div>
 
                 <div className="input-group">
                   <FaLock className="input-icon"/>
-                  <input type="password" placeholder="Confirm Password" required />
+                  <input name="confirmPassword" type="password" placeholder="Confirm Password: xtywohe*****dfhio" required />
                 </div>
 
                 <button type="submit" className="primary-btn">
                   Create Account
                 </button>
 
+                {message && (
+                  <p className={`form-message ${type}`}>
+                    {message}
+                  </p>
+                )}
+
                 </form>
 
                 <p className="signup-footer">
-                 Already have an account? <Link to="/">Login</Link>
+                 Already have an account? <Link to="/admin/login">Login</Link>
                 </p>
 
               </div>
