@@ -30,21 +30,33 @@ export default function AdminSignup() {
   if (password !== confirmPassword) {
     setType("error");
     setMessage("Passwords do not match.");
+    setTimeout(() => {
+        setMessage("");
+    }, 3000);
     return;
   }
 
   if (staffId !== "AD1234-5") {
     setType("error");
     setMessage("Invalid staff ID.");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
     return;
   }
 
   if (password === "admin1234") {
     setType("success");
     setMessage("Admin account created successfully!");
+    setTimeout(() => {
+      navigate("/");
+    }, 1200);
   } else {
     setType("error");
     setMessage("Password must match admin credentials.");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
   }
 };
   return (
@@ -55,7 +67,7 @@ export default function AdminSignup() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="signup-right">
+        <div className="signup-left">
 
           {/* Background icon */}
                 <FaUserShield className="admin-bg-icon"/>
@@ -113,7 +125,7 @@ export default function AdminSignup() {
               </div>
 
              {/* LEFT SIDE */}
-              <div className="signup-left">
+              <div className="signup-right">
                     <h3>Welcome</h3>
 
                     <div className="signup-content">
