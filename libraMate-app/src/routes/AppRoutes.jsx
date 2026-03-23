@@ -3,6 +3,7 @@ import Home from "../users/Home";
 import AdminSignup from "../users/admin/AdminSignup";
 import AdminLogin from "../users/admin/AdminLogin";
 import StudentSignup from "../users/student/StudentSignup";
+import StudentLogin from "../users/student/StudentLogin";
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
 
       {/* Student */}
       <Route path="/student/signup" element={<StudentSignup />} />
+      <Route path="/student/login" element={<StudentLogin />} />
 
     </Routes>
   );

@@ -66,7 +66,7 @@ export default function AdminSignup() {
           <FaArrowLeft />
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE (FORM) */}
         <div className="signup-left">
 
           {/* Background icon */}
@@ -83,27 +83,27 @@ export default function AdminSignup() {
 
                 <div className="input-group">
                   <FaUser className="input-icon"/>
-                  <input name="fullName" type="text" placeholder="Full Name: Kofi Smith" required />
+                  <input name="fullName" type="text" placeholder="Full Name" required />
                 </div>
 
                 <div className="input-group">
                   <FaEnvelope className="input-icon"/>
-                  <input name="email" type="email" placeholder="Email Address: kofismith@mailsample.com" required />
+                  <input name="email" type="email" placeholder="Email Address" required />
                 </div>
 
                 <div className="input-group">
                   <FaIdBadge className="input-icon"/>
-                  <input name="staffId" type="text" placeholder="Staff ID: AD12498-1" required />
+                  <input name="staffId" type="text" placeholder="Staff ID" required />
                 </div>
 
                 <div className="input-group">
                   <FaLock className="input-icon"/>
-                  <input name="password" type="password" placeholder="Password: xtywohe*****dfhio" required />
+                  <input name="password" type="password" placeholder="Password" required />
                 </div>
 
                 <div className="input-group">
                   <FaLock className="input-icon"/>
-                  <input name="confirmPassword" type="password" placeholder="Confirm Password: xtywohe*****dfhio" required />
+                  <input name="confirmPassword" type="password" placeholder="Confirm Password" required />
                 </div>
 
                 <button type="submit" className="primary-btn">
@@ -124,7 +124,7 @@ export default function AdminSignup() {
 
               </div>
 
-             {/* LEFT SIDE */}
+             {/* LEFT SIDE (WELCOME) */}
               <div className="signup-right">
                     <h3>Welcome</h3>
 

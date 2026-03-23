@@ -1,6 +1,6 @@
 import "./Student.css";
 import { useState } from "react";
-import { FaUser, FaEnvelope, FaLock, FaArrowLeft } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaArrowLeft, FaUserGraduate, FaGraduationCap } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import studentImg from "../../assets/student-sign-bg.png";
@@ -9,43 +9,56 @@ export default function StudentSignup() {
 
   const navigate = useNavigate();
 
-  const [message, setMessage] = useState("");
+   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
 
   const handleSignup = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const form = e.target;
+  const form = e.target;
+  const fullName = form.fullName.value;
+  const studentID = form.studentID.value;
+  const password = form.password.value;
+  const confirmPassword = form.confirmPassword.value;
 
-    const fullName = form.fullName.value;
-    const email = form.email.value;
-    const password = form.password.value;
+  if (!fullName || !studentID || !password || !confirmPassword) {
+    setType("error");
+    setMessage("Please fill in all required fields.");
+    return;
+  }
 
-    if (!fullName || !email || !password) {
-      setType("error");
-      setMessage("Please fill in all required fields.");
-      setTimeout(() => {
+  if (password !== confirmPassword) {
+    setType("error");
+    setMessage("Passwords do not match.");
+    setTimeout(() => {
         setMessage("");
-      }, 3000);
-      return;
-    }
+    }, 3000);
+    return;
+  }
 
-    if (password.length < 6) {
-      setType("error");
-      setMessage("Password must be at least 6 characters.");
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
-      return;
-    }
+  if (studentID !== "ID1234-5") {
+    setType("error");
+    setMessage("Invalid Student ID.");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+    return;
+  }
 
+  if (password === "student1234") {
     setType("success");
     setMessage("Student account created successfully!");
     setTimeout(() => {
       navigate("/");
     }, 1200);
-  };
-
+  } else {
+    setType("error");
+    setMessage("Password must match student credentials.");
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  }
+};
   return (
 
     <div className="student-signup">
@@ -58,6 +71,10 @@ export default function StudentSignup() {
 
         {/* LEFT SIDE (FORM) */}
         <div className="signup-left">
+
+        {/* Background icon */}
+          
+          <FaUserGraduate className="student-bg-icon"/>
 
           <h2>Sign Up as Student</h2>
 
@@ -74,6 +91,16 @@ export default function StudentSignup() {
                 name="fullName"
                 type="text"
                 placeholder="Full Name"
+                required
+              />
+            </div>
+
+            <div className="input-group">
+              <FaUserGraduate className="input-icon"/>
+              <input
+                name="studentID"
+                type="text"
+                placeholder="Student ID"
                 required
               />
             </div>
@@ -98,8 +125,18 @@ export default function StudentSignup() {
               />
             </div>
 
+            <div className="input-group">
+              <FaLock className="input-icon"/>
+              <input
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+
             <button type="submit" className="primary-btn">
-              SIGN UP
+             CREATE ACCOUNT
             </button>
 
             {message && (
@@ -124,7 +161,7 @@ export default function StudentSignup() {
 
           <div className="signup-content">
 
-            <h1>LibraMate System Management</h1>
+            <h1>LibraMate Management System</h1>
 
             <p>
               The purpose of the Student Login is to allow students

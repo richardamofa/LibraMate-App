@@ -45,8 +45,23 @@ color:white;
 
 }
 
+/* STUDENT BACKGROUND ICON */
+
+.student-bg-icon{
+position:absolute;
+font-size:260px;
+color:var(--primary);
+opacity:0.16;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:0;
+pointer-events:none;
+}
+
 /* LEFT PANEL */
 
+.login-left,
 .signup-left{
 flex:1;
 display:flex;
@@ -56,12 +71,14 @@ padding:80px;
 background:#f7f5f3;
 }
 
+.login-left h2,
 .signup-left h2{
 font-size:36px;
 color:var(--secondary);
 margin-bottom:10px;
 }
 
+.login-left p,
 .signup-left p{
 color:#666;
 max-width:420px;
@@ -136,6 +153,7 @@ color:#d32f2f;
 
 /* FOOTER */
 
+.login-footer,
 .signup-footer{
 text-align:center;
 margin-top:18px;
@@ -143,6 +161,7 @@ font-size:14px;
 color:#666;
 }
 
+.login-footer a,
 .signup-footer a{
 color:var(--primary);
 font-weight:600;
@@ -165,25 +184,30 @@ position:relative;
 text-align:center;
 }
 
+.login-right h3,
 .signup-right h3{
 font-size:20px;
 margin-bottom:10px;
 }
 
+.login-content h1,
 .signup-content h1{
 font-size:36px;
 margin-bottom:20px;
 }
 
+.login-content p,
 .signup-content p{
 max-width:420px;
 line-height:1.7;
 }
 
+.login-image,
 .signup-image{
 margin-top:40px;
 }
 
+.login-image img,
 .signup-image img{
 width:320px;
 max-width:100%;
@@ -210,16 +234,43 @@ max-width:380px;
 
 @media(max-width:900px){
 
-.student-inner{
+.admin-inner{
 flex-direction:column;
 }
 
-.signup-right{
-border-radius:0;
+.login-left,
+.signup-left{
+border-radius:0 0 40px 40px;
+padding:40px;
 }
 
-.signup-left{
-padding:40px;
+.login-right,
+.signup-right{
+padding:40px 20px;
+}
+
+.login-image img,
+.signup-image img{
+width:300px;
+}
+
+}
+
+@media(max-width:500px){
+
+.login-content h1,
+.signup-content h1{
+font-size:26px;
+}
+
+.login-right h2,
+.signup-right h2{
+font-size:24px;
+}
+
+.login-form,
+.signup-form{
+max-width:100%;
 }
 
 }

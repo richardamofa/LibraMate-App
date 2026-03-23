@@ -45,7 +45,7 @@ export default function AdminLogin() {
         <div className="back-arrow" onClick={() => navigate("/")}>
           <FaArrowLeft />
         </div>
-            {/* LEFT SIDE */}
+            {/* LEFT SIDE  (FORM)*/}
             <div className="login-right">
 
           {/* Background icon */}
@@ -62,17 +62,17 @@ export default function AdminLogin() {
 
                 <div className="input-group">
                   <FaEnvelope className="input-icon"/>
-                  <input name="email" type="email" placeholder="Email Address: kofismith@mailsample.com" required />
+                  <input name="email" type="email" placeholder="Email Address" required />
                 </div>
 
                 <div className="input-group">
                   <FaIdBadge className="input-icon"/>
-                  <input name="staffId" type="text" placeholder="Staff ID: AD12498-1" required />
+                  <input name="staffId" type="text" placeholder="Staff ID" required />
                 </div>
 
                 <div className="input-group">
                   <FaLock className="input-icon"/>
-                  <input name="password" type="password" placeholder="Password: xtywohe*****dfhio" required />
+                  <input name="password" type="password" placeholder="Password" required />
                 </div>
 
                 <button type="submit" className="primary-btn">
