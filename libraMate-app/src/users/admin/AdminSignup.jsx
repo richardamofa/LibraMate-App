@@ -49,7 +49,7 @@ export default function AdminSignup() {
     setType("success");
     setMessage("Admin account created successfully!");
     setTimeout(() => {
-      navigate("/");
+      navigate("/admin/dashboard");
     }, 1200);
   } else {
     setType("error");

@@ -27,7 +27,7 @@ export default function AdminLogin() {
     setType("success");
     setMessage("Login successful. Redirecting...");
     setTimeout(() => {
-      navigate("/");
+      navigate("/admin/dashboard");
     }, 1200);
   } else {
     setType("error");
@@ -93,7 +93,7 @@ export default function AdminLogin() {
 
               </div>
 
-           {/* RIGHT SIDE */}
+           {/* RIGHT SIDE (*/}
             <div className="login-left">
 
                     <div className="login-content">

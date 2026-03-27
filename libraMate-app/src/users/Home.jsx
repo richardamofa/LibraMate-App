@@ -1,6 +1,6 @@
 import "../App.css";
 import heroImg from "../assets/hero.jfif"; 
-import { HoverButton } from "../components/HoverButton.jsx";
+import { HoverButton } from "../components/Hoverbutton/HoverButton.jsx";
 import { FaUserShield, FaUserGraduate } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
