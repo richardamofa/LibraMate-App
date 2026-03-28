@@ -459,6 +459,13 @@ color: var(--primary);
   transform:translateY(-5px);
 }
 
+/* Label */
+.card-label {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
 /* KPI */
 .kpi-number{
   font-size:3rem;
@@ -489,12 +496,49 @@ color:#ef4444;
 }
 
 /* READERS */
-.readers-number{
-  font-size:4rem;
-  color:var(--primary);
+.readers-card {
+  position: relative;
+  overflow: hidden;
 }
 
-/* CHART */
+/* Background icon */
+.readers-icon {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  font-size: 190px;
+  opacity: 0.08; /* makes it subtle */
+  pointer-events: none; /* so it doesn’t block clicks */
+ /* filter: blur(1px);*/
+}
+
+.readers-icon {
+  transition: transform 0.3s ease;
+}
+
+.readers-card:hover .readers-icon {
+  transform: scale(1.1);
+}
+
+/* Number */
+.readers-number {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Trend icon */
+.trend-up {
+  color: #22c55e; 
+  font-size: 20px;
+}
+
+/* CHARTS */
+.bar-card{
+margin-top: 20px;
+}
 .chart-placeholder{
   height:300px;
   background:#f3f4f6;
@@ -503,4 +547,28 @@ color:#ef4444;
   align-items:center;
   justify-content:center;
   color:#999;
+}
+
+/* Overlay */
+.signout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Box */
+.signout-box {
+  background: rgba(211, 47, 47, 0.582);
+  backdrop-filter: blur(12px);
+  padding: 20px 30px;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 1.1rem;
+  border: 1px solid rgba(239, 68, 68, 0.454);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }

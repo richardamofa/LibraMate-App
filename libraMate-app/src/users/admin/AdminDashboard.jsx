@@ -1,20 +1,49 @@
 import './Admin.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
-
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { FaChartBar, FaChartLine, FaPeopleArrows, FaUserAlt, FaUsers } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
+import {PieChart,Pie,Tooltip,ResponsiveContainer,Cell,BarChart,Bar,XAxis,YAxis,CartesianGrid,Legend} from "recharts";
 
 const AdminDashboard = () => {
-  console.log("Admin Test");
+  const navigate = useNavigate();
+  const [isSigningOut, setIsSigningOut] = useState(false);
+
+  //  FIXED FUNCTION
   const handleSignOut = () => {
-    console.log("Signing out...");
-    // sign out logic here (clear token, redirect, etc.)
-  };
+    setIsSigningOut(true);
+
+    setTimeout(() => {
+      localStorage.removeItem("user");
+      navigate("/admin/login", { replace: true });
+    }, 1500);
+  }; // CLOSED PROPERLY
+
+  // NOW OUTSIDE FUNCTION
+  const pieData = [
+    { name: "Total Books", value: 798 },
+    { name: "Added", value: 235 },
+    { name: "Removed", value: 98 }
+  ];
+
+  const COLORS = ["#b58a6a", "#22c55e", "#ef4444"];
+
+  const barData = [
+    { month: "Jan", added: 40, removed: 10 },
+    { month: "Feb", added: 30, removed: 5 },
+    { month: "Mar", added: 50, removed: 20 },
+    { month: "Apr", added: 70, removed: 25 },
+    { month: "May", added: 60, removed: 15 },
+  ];
+
+  const barColors = ["#22c55e", "#ef4444"];
 
   return (
     <div className="dashboard-container">
-       <Sidebar onSignOut={handleSignOut} /> 
+      <Sidebar onSignOut={handleSignOut} />
 
       <div className="main-content">
+        {/* Welcome */}
         <div className="welcome-section">
           <h1>Welcome to LMS, <span>Admin Dashboard</span></h1>
           <p>An automated dashboard for admins to keep track of LibraMate Software</p>
@@ -36,32 +65,95 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Readers + Pie Chart */}
+        {/* Stats Row */}
         <div className="stats-row">
+
+          {/* Readers */}
           <div className="readers-card glass-card">
+            {/*background icon */}
+            <FaUsers className='readers-icon'/>
+
             <p className="card-label">NUMBER OF READERS</p>
-            <p className="readers-number">301</p>
-            <span className="trend-up">↑</span>
+            <p className="readers-number">
+              301
+              <span className="trend-up">
+                <FaChartLine />
+              </span>
+            </p>
           </div>
 
+          {/* Pie Chart */}
           <div className="chart-card glass-card">
             <p className="card-label">BOOK DISTRIBUTION</p>
-            <div className="chart-placeholder">
-              Pie Chart will go here
+
+            <div style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer>
+                <PieChart>
+                  <Pie
+                    data={pieData}
+                    dataKey="value"
+                    outerRadius={100}
+                    label
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell key={index} fill={COLORS[index]} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                  contentStyle={
+                    {
+                     background: "#fff",
+                     border: "none",
+                     borderRadius: "10px"
+                    }
+                  }
+                   />
+                </PieChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>
 
         {/* Bar Chart */}
-        <div className="chart-card glass-card">
+        <div className="bar-card glass-card">
           <p className="card-label">ACTIVITY OVERVIEW</p>
-          <div className="chart-placeholder">
-            Bar Chart will go here
+
+          <div style={{ width: "100%", height: 300 }}>
+            <ResponsiveContainer>
+              <BarChart data={barData}>
+                <CartesianGrid stroke="rgba(255,255,255,0.08)" />
+                <XAxis dataKey="month" stroke="#ccc" />
+                <YAxis stroke="#ccc" />
+                <Tooltip
+                contentStyle={{
+                    background: "rgba(0, 0, 0, 0.7)",
+                    border: "none",
+                    borderRadius: "10px",
+                    color: "#fff"
+                }}
+                />
+                <Legend />
+                {/* Added Books */}
+                <Bar dataKey="added" fill={barColors[0]} radius={[6, 6, 0, 0]} />
+
+                {/* Removed Books */}
+                <Bar dataKey="removed" fill={barColors[1]} radius={[6, 6, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
+        
+        {/*signning out*/}
+        {isSigningOut && (
+        <div className="signout-overlay">
+                <div className="signout-box">
+                <p>Signing you out...</p>
+                </div>
+            </div>
+        )}
       </div>
     </div>
   );
-};
+  };
 
 export default AdminDashboard;

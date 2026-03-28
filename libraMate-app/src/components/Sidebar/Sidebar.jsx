@@ -1,10 +1,15 @@
 import './Sidebar.css';
 import { useState } from "react";
-import Avatar from "../../assets/profile.png";
+import Avatar from "../../assets/pfp.png";
 import {FaPlus,FaMinus,FaSync,FaSearch,FaList,FaSignOutAlt,FaBars,FaTimes} from "react-icons/fa";
 
 const Sidebar = ({ onSignOut }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // simple handler (no routing yet)
+  const handleClick = () => {
+    setIsOpen(false); // closes sidebar on mobile
+  };
 
   return (
     <>
@@ -36,29 +41,29 @@ const Sidebar = ({ onSignOut }) => {
 
           {/* Navigation */}
           <nav className="nav-menu">
-            <button className="nav-item">
+            <button className="nav-item" onClick={handleClick}>
               <FaPlus className="nav-icon" />
-              <span>Add book</span>
+              <span>Add Book</span>
             </button>
 
-            <button className="nav-item">
+            <button className="nav-item" onClick={handleClick}>
               <FaMinus className="nav-icon" />
-              <span>Remove book</span>
+              <span>Remove Book</span>
             </button>
 
-            <button className="nav-item">
+            <button className="nav-item" onClick={handleClick}>
               <FaSync className="nav-icon" />
-              <span>Update book</span>
+              <span>Update Book</span>
             </button>
 
-            <button className="nav-item">
+            <button className="nav-item" onClick={handleClick}>
               <FaSearch className="nav-icon" />
-              <span>Search book</span>
+              <span>Search Book</span>
             </button>
 
-            <button className="nav-item">
+            <button className="nav-item" onClick={handleClick}>
               <FaList className="nav-icon" />
-              <span>View book list</span>
+              <span>View Book List</span>
             </button>
           </nav>
 
@@ -66,7 +71,7 @@ const Sidebar = ({ onSignOut }) => {
           <div className="signout-section">
             <button 
               onClick={() => {
-                onSignOut && onSignOut();
+                if (onSignOut) onSignOut();
                 setIsOpen(false);
               }}
               className="signout-btn"
@@ -81,10 +86,14 @@ const Sidebar = ({ onSignOut }) => {
 
       {/* Mobile Overlay */}
       {isOpen && (
-        <div className="overlay" onClick={() => setIsOpen(false)}></div>
+        <div 
+          className="overlay" 
+          onClick={() => setIsOpen(false)}
+        ></div>
       )}
     </>
   );
 };
 
 export default Sidebar;
+
