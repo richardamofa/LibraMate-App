@@ -41,6 +41,7 @@ export default function AdminLogin() {
 
   return (
     <div className="admin-login">
+      <div className="page-enter">
       <main className="admin-inner">
         <div className="back-arrow" onClick={() => navigate("/")}>
           <FaArrowLeft />
@@ -95,7 +96,7 @@ export default function AdminLogin() {
 
            {/* RIGHT SIDE (*/}
             <div className="login-left">
-
+              <h3>Welcome</h3>
                     <div className="login-content">
                       <h1>LibraMate Management System</h1>
 
@@ -110,6 +111,7 @@ export default function AdminLogin() {
               </div>
 
       </main>
+      </div>
     </div>
   );
 }

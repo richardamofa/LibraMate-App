@@ -22,7 +22,7 @@
   box-shadow: 12px 0 40px rgba(0, 0, 0, 0.45);
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-  z-index: 100;
+  z-index: 1000;
 }
 
 .sidebar.open {
@@ -157,7 +157,7 @@
 .mobile-menu-btn svg {
   width: 22px;
   height: 22px;
-  color: var(--primary); 
+  color: #7b5940; 
 }
 
 .sidebar {
@@ -175,22 +175,43 @@
   inset: 0;
   background: rgba(26, 26, 26, 0.139);
   backdrop-filter: blur(6px);
-  z-index: 90;
+  z-index: 900;
+}
+@media (max-width: 500px) {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+
+  z-index: 1000;
+}
+}
+
+/* OPEN STATE (mobile) */
+.sidebar.open {
+  transform: translateX(0);
 }
 
 @media (min-width: 1024px) {
-  .overlay { display: none; }
-}
 
-@media (min-width: 1024px) {
   .sidebar {
     position: relative;
     transform: translateX(0) !important;
+    width: 260px;
+    height: 100vh;
+
+    display: block;
+    flex-shrink: 0;
+
     box-shadow: none;
-    left: 0;
   }
-}
-@media (min-width: 1024px) {
+
+  /* Layout fix */
   .dashboard-container {
     display: flex;
   }
@@ -198,5 +219,15 @@
   .main-content {
     flex: 1;
     margin-left: 0;
+  }
+
+  /* Hide hamburger on desktop */
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  /* Remove overlay on desktop */
+  .overlay {
+    display: none;
   }
 }

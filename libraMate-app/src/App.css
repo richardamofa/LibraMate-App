@@ -179,3 +179,108 @@ html, body {
 .footer span a {
   color: #777;
 }
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    margin: 20px;
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-text {
+    padding: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .role-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .hero-image {
+    padding: 10px;
+  }
+
+  .hero-image img {
+    max-width: 280px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .navbar {
+    margin: 30px;
+    padding: 16px 24px;
+  }
+
+  .hero {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-text {
+    padding: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-image img {
+    max-width: 360px;
+  }
+}
+
+.action-btn {
+  background: none;
+}
+
+.navbar.scrolled {
+  background: rgba(181, 138, 106, 0.9);
+}
