@@ -406,7 +406,7 @@ box-shadow:
   .login-right,
   .signup-right {
     border-radius: 25px 25px 0 0 !important;
-    padding: 25px 16px;
+    padding: 30px !important;
   }
 
   .login-left,

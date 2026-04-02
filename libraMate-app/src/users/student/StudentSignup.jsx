@@ -9,7 +9,7 @@ export default function StudentSignup() {
 
   const navigate = useNavigate();
 
-   const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
   const [type, setType] = useState("");
 
   const handleSignup = (e) => {
